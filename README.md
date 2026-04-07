@@ -6,6 +6,8 @@ This workspace contains a ready-to-teach A/B experiment for comparing a single t
 
 - `baseline_repo/`: starter repo for group A
 - `harness_repo/`: starter repo for group B
+- `instructor_assets/`: hidden tests and scoring logic for instructors only
+- `TEACHER_GUIDE.md`: recommended experiment workflow
 
 Both repos contain the same buggy Python implementation and the same task prompt. The only difference is that `harness_repo/` includes:
 
@@ -23,19 +25,13 @@ Both repos contain the same buggy Python implementation and the same task prompt
 
 ## Teacher usage
 
-Each repo includes:
+Instructor-only assets now live outside the student repos.
 
-- `tests/`: visible tests
-- `tests_hidden/`: hidden tests for instructors
-- `scripts/check_layer_rules.py`: static architecture check
-- `scripts/score_submission.py`: automated rubric for the testable parts
-
-Example:
+Use:
 
 ```bash
-cd harness_repo
-python3 -m pip install pytest
-python scripts/score_submission.py
+baseline_repo/.venv/bin/python instructor_assets/evaluate_submission.py baseline_repo
+harness_repo/.venv/bin/python instructor_assets/evaluate_submission.py harness_repo
 ```
 
-If you want to hide the hidden tests before class, remove or relocate `tests_hidden/` and keep `scripts/run_hidden_checks.sh` for instructor use only.
+See `TEACHER_GUIDE.md` for the full experiment flow.

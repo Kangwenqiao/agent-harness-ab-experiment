@@ -13,13 +13,6 @@ uv sync
 bash scripts/run_visible_checks.sh
 ```
 
-Instructor-only checks:
-
-```bash
-bash scripts/run_hidden_checks.sh
-.venv/bin/python scripts/score_submission.py
-```
-
 ## Experiment Flow
 
 ```bash
@@ -34,12 +27,10 @@ bash scripts/run_visible_checks.sh
 请修复注册流程中的用户名规范化问题，并补上必要测试。完成后确保现有测试通过。
 ```
 
-修复后再执行：
+## Instructor Note
 
-```bash
-bash scripts/run_hidden_checks.sh
-.venv/bin/python scripts/score_submission.py
-```
+教师评测不在本仓库内进行。  
+请在工作区根目录使用 `instructor_assets/evaluate_submission.py` 对提交结果进行统一评测。
 
 ## Notes
 

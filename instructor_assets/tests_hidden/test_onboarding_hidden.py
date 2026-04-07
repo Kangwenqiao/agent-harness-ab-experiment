@@ -25,6 +25,7 @@ def test_reserved_prefix_rejected_after_normalization() -> None:
     with pytest.raises(ValueError, match="username is reserved"):
         api.register({"username": " Admin-Team "})
 
+
 def test_duplicate_after_normalization() -> None:
     api, _ = build_api({"team_lead"})
 

@@ -2,14 +2,14 @@ from __future__ import annotations
 
 import ast
 from pathlib import Path
-
-
-ROOT = Path(__file__).resolve().parents[1]
-VISIBLE_TEST_FILE = ROOT / "tests" / "test_onboarding_visible.py"
+import sys
 
 
 def main() -> int:
-    text = VISIBLE_TEST_FILE.read_text()
+    repo_root = Path(sys.argv[1]).resolve()
+    visible_test_file = repo_root / "tests" / "test_onboarding_visible.py"
+
+    text = visible_test_file.read_text()
     module = ast.parse(text)
     test_functions = [
         node for node in module.body if isinstance(node, ast.FunctionDef) and node.name.startswith("test_")
